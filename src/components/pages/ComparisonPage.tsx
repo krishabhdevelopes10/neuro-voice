@@ -38,13 +38,11 @@ export default function ComparisonPage() {
   };
 
   const getDeviationColor = (deviation: number, metric: 'cognitive' | 'stress' | 'fatigue') => {
-    // For cognitive score, higher is better
     if (metric === 'cognitive') {
       if (deviation > 5) return 'text-primary';
       if (deviation < -5) return 'text-destructive';
       return 'text-foreground/60';
     }
-    // For stress and fatigue, lower is better
     if (deviation > 5) return 'text-destructive';
     if (deviation < -5) return 'text-primary';
     return 'text-foreground/60';
@@ -58,7 +56,7 @@ export default function ComparisonPage() {
       <Header />
 
       <section className="w-full py-16 md:py-24" style={{ minHeight: '600px' }}>
-        <div className="max-w-[100rem] mx-auto px-8">
+        <div className="max-w-[120rem] mx-auto px-6 md:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -90,13 +88,13 @@ export default function ComparisonPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white rounded-xl p-8 shadow-sm mb-12"
+                className="bg-gradient-to-br from-white to-primary/5 rounded-2xl p-8 shadow-lg border border-primary/10 mb-12"
               >
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="font-heading text-3xl text-foreground">
                     {baseline?.recordingLabel || 'Baseline Recording'}
                   </h2>
-                  <span className="px-4 py-2 bg-primary/10 text-primary text-sm font-paragraph rounded-full">
+                  <span className="px-4 py-2 bg-gradient-to-r from-primary/10 to-medical-blue/10 text-primary text-sm font-semibold rounded-lg border border-primary/20">
                     Baseline
                   </span>
                 </div>
@@ -105,7 +103,7 @@ export default function ComparisonPage() {
                     <p className="font-paragraph text-sm text-foreground/60 mb-2">
                       Cognitive Score
                     </p>
-                    <p className="font-paragraph text-4xl text-primary font-bold">
+                    <p className="font-paragraph text-4xl bg-gradient-to-r from-primary to-medical-blue bg-clip-text text-transparent font-bold">
                       {baseline?.cognitiveScore || 0}
                     </p>
                   </div>
@@ -113,7 +111,7 @@ export default function ComparisonPage() {
                     <p className="font-paragraph text-sm text-foreground/60 mb-2">
                       Stress Level
                     </p>
-                    <p className="font-paragraph text-4xl text-secondary font-bold">
+                    <p className="font-paragraph text-4xl bg-gradient-to-r from-health-teal to-medical-blue bg-clip-text text-transparent font-bold">
                       {baseline?.stressLevel || 0}
                     </p>
                   </div>
@@ -121,7 +119,7 @@ export default function ComparisonPage() {
                     <p className="font-paragraph text-sm text-foreground/60 mb-2">
                       Fatigue Index
                     </p>
-                    <p className="font-paragraph text-4xl text-muted-purple font-bold">
+                    <p className="font-paragraph text-4xl bg-gradient-to-r from-medical-blue to-primary bg-clip-text text-transparent font-bold">
                       {baseline?.fatigueIndex || 0}
                     </p>
                   </div>
@@ -151,7 +149,7 @@ export default function ComparisonPage() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="bg-white rounded-xl p-8 shadow-sm"
+                        className="bg-white rounded-2xl p-8 shadow-lg border border-primary/10 hover:shadow-xl hover:border-primary/20 transition-all"
                       >
                         <h3 className="font-heading text-2xl text-foreground mb-6">
                           {recording.recordingLabel}
@@ -170,13 +168,13 @@ export default function ComparisonPage() {
                               )}`}
                             >
                               {getDeviationIcon(cognitiveDeviation)}
-                              <span className="font-paragraph text-sm font-medium">
+                              <span className="font-paragraph text-sm font-semibold">
                                 {cognitiveDeviation > 0 ? '+' : ''}
                                 {cognitiveDeviation}%
                               </span>
                             </div>
                           </div>
-                          <p className="font-paragraph text-3xl text-primary font-bold">
+                          <p className="font-paragraph text-3xl bg-gradient-to-r from-primary to-medical-blue bg-clip-text text-transparent font-bold">
                             {recording.cognitiveScore || 0}
                           </p>
                         </div>
@@ -194,13 +192,13 @@ export default function ComparisonPage() {
                               )}`}
                             >
                               {getDeviationIcon(stressDeviation)}
-                              <span className="font-paragraph text-sm font-medium">
+                              <span className="font-paragraph text-sm font-semibold">
                                 {stressDeviation > 0 ? '+' : ''}
                                 {stressDeviation}%
                               </span>
                             </div>
                           </div>
-                          <p className="font-paragraph text-3xl text-secondary font-bold">
+                          <p className="font-paragraph text-3xl bg-gradient-to-r from-health-teal to-medical-blue bg-clip-text text-transparent font-bold">
                             {recording.stressLevel || 0}
                           </p>
                         </div>
@@ -218,13 +216,13 @@ export default function ComparisonPage() {
                               )}`}
                             >
                               {getDeviationIcon(fatigueDeviation)}
-                              <span className="font-paragraph text-sm font-medium">
+                              <span className="font-paragraph text-sm font-semibold">
                                 {fatigueDeviation > 0 ? '+' : ''}
                                 {fatigueDeviation}%
                               </span>
                             </div>
                           </div>
-                          <p className="font-paragraph text-3xl text-muted-purple font-bold">
+                          <p className="font-paragraph text-3xl bg-gradient-to-r from-medical-blue to-primary bg-clip-text text-transparent font-bold">
                             {recording.fatigueIndex || 0}
                           </p>
                         </div>

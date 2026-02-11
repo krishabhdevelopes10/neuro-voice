@@ -72,7 +72,6 @@ export default function RecordPage() {
         )
       );
 
-      // Timer
       timerRef.current = setInterval(() => {
         setRecordings((prev) =>
           prev.map((rec) =>
@@ -114,12 +113,10 @@ export default function RecordPage() {
     setIsAnalyzing(true);
 
     try {
-      // Simulate analysis and save recordings to database
       for (const recording of completedRecordings) {
-        // Generate simulated scores
-        const cognitiveScore = Math.floor(Math.random() * 30) + 70; // 70-100
-        const stressLevel = Math.floor(Math.random() * 40) + 20; // 20-60
-        const fatigueIndex = Math.floor(Math.random() * 35) + 15; // 15-50
+        const cognitiveScore = Math.floor(Math.random() * 30) + 70;
+        const stressLevel = Math.floor(Math.random() * 40) + 20;
+        const fatigueIndex = Math.floor(Math.random() * 35) + 15;
 
         await BaseCrudService.create<VoiceRecordings>('voicerecordings', {
           _id: crypto.randomUUID(),
@@ -132,7 +129,6 @@ export default function RecordPage() {
         });
       }
 
-      // Navigate to dashboard
       setTimeout(() => {
         navigate('/dashboard');
       }, 1000);
@@ -154,7 +150,7 @@ export default function RecordPage() {
       <Header />
 
       <section className="w-full py-16 md:py-24">
-        <div className="max-w-[100rem] mx-auto px-8">
+        <div className="max-w-[120rem] mx-auto px-6 md:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -177,7 +173,7 @@ export default function RecordPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-8 shadow-sm"
+                className="bg-gradient-to-br from-white to-primary/5 rounded-2xl p-8 shadow-lg border border-primary/10 hover:shadow-xl hover:border-primary/20 transition-all"
               >
                 <h3 className="font-heading text-2xl text-foreground mb-6 text-center">
                   {recording.label}
@@ -189,7 +185,7 @@ export default function RecordPage() {
                     {[...Array(20)].map((_, i) => (
                       <motion.div
                         key={i}
-                        className="w-1 bg-primary rounded-full"
+                        className="w-1 bg-gradient-to-t from-primary to-medical-blue rounded-full"
                         animate={{
                           height: [20, 60, 20],
                         }}
@@ -205,19 +201,19 @@ export default function RecordPage() {
 
                 {!recording.isRecording && !recording.blob && (
                   <div className="h-24 mb-6 flex items-center justify-center">
-                    <Mic className="w-12 h-12 text-foreground/20" />
+                    <Mic className="w-12 h-12 text-primary/30" />
                   </div>
                 )}
 
                 {!recording.isRecording && recording.blob && (
                   <div className="h-24 mb-6 flex items-center justify-center">
-                    <Check className="w-12 h-12 text-primary" />
+                    <Check className="w-12 h-12 text-health-teal" />
                   </div>
                 )}
 
                 {/* Timer */}
                 <div className="text-center mb-6">
-                  <span className="font-paragraph text-3xl text-foreground">
+                  <span className="font-paragraph text-3xl font-bold bg-gradient-to-r from-primary to-medical-blue bg-clip-text text-transparent">
                     {formatTime(recording.duration)}
                   </span>
                 </div>
@@ -228,7 +224,7 @@ export default function RecordPage() {
                     <button
                       onClick={() => startRecording(recording.id)}
                       disabled={activeRecordingId !== null}
-                      className="flex items-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-6 py-3 font-paragraph transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="flex items-center gap-2 bg-gradient-to-r from-primary to-medical-blue text-white hover:shadow-lg hover:shadow-primary/30 rounded-lg px-6 py-3 font-semibold font-paragraph transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
                     >
                       <Mic size={20} />
                       Record
@@ -238,7 +234,7 @@ export default function RecordPage() {
                   {recording.isRecording && (
                     <button
                       onClick={stopRecording}
-                      className="flex items-center gap-2 border-2 border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground rounded-full px-6 py-3 font-paragraph transition-colors duration-300"
+                      className="flex items-center gap-2 bg-destructive text-white hover:shadow-lg hover:shadow-destructive/30 rounded-lg px-6 py-3 font-semibold font-paragraph transition-all duration-300 hover:scale-105"
                     >
                       <Square size={20} />
                       Stop
@@ -248,7 +244,7 @@ export default function RecordPage() {
                   {!recording.isRecording && recording.blob && (
                     <button
                       onClick={() => deleteRecording(recording.id)}
-                      className="flex items-center gap-2 border-2 border-muted-purple text-muted-purple hover:bg-muted-purple hover:text-white rounded-full px-6 py-3 font-paragraph transition-colors duration-300"
+                      className="flex items-center gap-2 bg-health-teal text-white hover:shadow-lg hover:shadow-health-teal/30 rounded-lg px-6 py-3 font-semibold font-paragraph transition-all duration-300 hover:scale-105"
                     >
                       <Trash2 size={20} />
                       Delete
@@ -269,7 +265,7 @@ export default function RecordPage() {
             <button
               onClick={analyzeRecordings}
               disabled={isAnalyzing || recordings.every((rec) => rec.blob === null)}
-              className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-12 py-4 text-lg font-paragraph transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-gradient-to-r from-primary to-medical-blue text-white hover:shadow-lg hover:shadow-primary/30 rounded-lg px-12 py-4 text-lg font-semibold font-paragraph transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
             >
               {isAnalyzing ? 'Analyzing...' : 'Analyze Speech'}
             </button>

@@ -56,7 +56,7 @@ export default function DashboardPage() {
       <Header />
 
       <section className="w-full py-16 md:py-24" style={{ minHeight: '600px' }}>
-        <div className="max-w-[100rem] mx-auto px-8">
+        <div className="max-w-[120rem] mx-auto px-6 md:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,17 +89,17 @@ export default function DashboardPage() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="bg-white rounded-xl p-8 shadow-sm"
+                  className="bg-gradient-to-br from-white to-primary/5 rounded-2xl p-8 shadow-lg border border-primary/10 hover:shadow-xl hover:border-primary/20 transition-all"
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-medical-blue/20 rounded-lg flex items-center justify-center">
                       <Brain className="w-6 h-6 text-primary" />
                     </div>
                     <h3 className="font-heading text-2xl text-foreground">
                       Cognitive Score
                     </h3>
                   </div>
-                  <p className="font-paragraph text-5xl text-primary font-bold mb-2">
+                  <p className="font-paragraph text-5xl bg-gradient-to-r from-primary to-medical-blue bg-clip-text text-transparent font-bold mb-2">
                     {averages.cognitive}
                   </p>
                   <p className="font-paragraph text-sm text-foreground/60">
@@ -111,17 +111,17 @@ export default function DashboardPage() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-white rounded-xl p-8 shadow-sm"
+                  className="bg-gradient-to-br from-white to-health-teal/5 rounded-2xl p-8 shadow-lg border border-health-teal/10 hover:shadow-xl hover:border-health-teal/20 transition-all"
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
-                      <Heart className="w-6 h-6 text-secondary" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-health-teal/20 to-medical-blue/20 rounded-lg flex items-center justify-center">
+                      <Heart className="w-6 h-6 text-health-teal" />
                     </div>
                     <h3 className="font-heading text-2xl text-foreground">
                       Stress Level
                     </h3>
                   </div>
-                  <p className="font-paragraph text-5xl text-secondary font-bold mb-2">
+                  <p className="font-paragraph text-5xl bg-gradient-to-r from-health-teal to-medical-blue bg-clip-text text-transparent font-bold mb-2">
                     {averages.stress}
                   </p>
                   <p className="font-paragraph text-sm text-foreground/60">
@@ -133,17 +133,17 @@ export default function DashboardPage() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="bg-white rounded-xl p-8 shadow-sm"
+                  className="bg-gradient-to-br from-white to-medical-blue/5 rounded-2xl p-8 shadow-lg border border-medical-blue/10 hover:shadow-xl hover:border-medical-blue/20 transition-all"
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-muted-purple/10 rounded-full flex items-center justify-center">
-                      <Activity className="w-6 h-6 text-muted-purple" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-medical-blue/20 to-primary/20 rounded-lg flex items-center justify-center">
+                      <Activity className="w-6 h-6 text-medical-blue" />
                     </div>
                     <h3 className="font-heading text-2xl text-foreground">
                       Fatigue Index
                     </h3>
                   </div>
-                  <p className="font-paragraph text-5xl text-muted-purple font-bold mb-2">
+                  <p className="font-paragraph text-5xl bg-gradient-to-r from-medical-blue to-primary bg-clip-text text-transparent font-bold mb-2">
                     {averages.fatigue}
                   </p>
                   <p className="font-paragraph text-sm text-foreground/60">
@@ -157,7 +157,7 @@ export default function DashboardPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="bg-white rounded-xl p-8 shadow-sm mb-16"
+                className="bg-white rounded-2xl p-8 shadow-lg border border-primary/10 mb-16"
               >
                 <h2 className="font-heading text-3xl text-foreground mb-8">
                   Recording Comparison
@@ -167,21 +167,21 @@ export default function DashboardPage() {
                     <CartesianGrid strokeDasharray="3 3" stroke="#E0E0E0" />
                     <XAxis
                       dataKey="name"
-                      tick={{ fill: '#333333', fontFamily: 'sora' }}
+                      tick={{ fill: '#1E293B', fontFamily: 'sora' }}
                     />
-                    <YAxis tick={{ fill: '#333333', fontFamily: 'sora' }} />
+                    <YAxis tick={{ fill: '#1E293B', fontFamily: 'sora' }} />
                     <Tooltip
                       contentStyle={{
                         backgroundColor: '#FFFFFF',
                         border: '1px solid #E0E0E0',
-                        borderRadius: '8px',
+                        borderRadius: '12px',
                         fontFamily: 'sora',
                       }}
                     />
                     <Legend wrapperStyle={{ fontFamily: 'sora' }} />
-                    <Bar dataKey="Cognitive Score" fill="#4A90E2" />
-                    <Bar dataKey="Stress Level" fill="#8E44AD" />
-                    <Bar dataKey="Fatigue Index" fill="#A076A8" />
+                    <Bar dataKey="Cognitive Score" fill="#0284C7" />
+                    <Bar dataKey="Stress Level" fill="#14B8A6" />
+                    <Bar dataKey="Fatigue Index" fill="#0369A1" />
                   </BarChart>
                 </ResponsiveContainer>
               </motion.div>
@@ -192,19 +192,19 @@ export default function DashboardPage() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="bg-white rounded-xl p-8 shadow-sm"
+                  className="bg-white rounded-2xl p-8 shadow-lg border border-primary/10"
                 >
                   <h2 className="font-heading text-3xl text-foreground mb-8">
                     Analysis Timeline
                   </h2>
                   <div className="space-y-6">
-                    {markers.map((marker, index) => (
+                    {markers.map((marker) => (
                       <div
                         key={marker._id}
                         className="flex gap-6 pb-6 border-b border-light-grey last:border-b-0"
                       >
                         <div className="flex-shrink-0">
-                          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                          <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-medical-blue/20 rounded-lg flex items-center justify-center">
                             <Clock className="w-6 h-6 text-primary" />
                           </div>
                         </div>
@@ -214,7 +214,7 @@ export default function DashboardPage() {
                               {marker.timestamp}
                             </span>
                             {marker.issueCategory && (
-                              <span className="px-3 py-1 bg-secondary/10 text-secondary text-xs font-paragraph rounded-full">
+                              <span className="px-3 py-1 bg-health-teal/10 text-health-teal text-xs font-semibold rounded-lg">
                                 {marker.issueCategory}
                               </span>
                             )}
