@@ -76,16 +76,16 @@ export default function HomePage() {
       <Header />
 
       {/* --- Hero Section --- */}
-      <section ref={heroRef} className="relative w-full min-h-[100vh] flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-slate-50 via-slate-50 to-primary/5">
+      <section ref={heroRef} className="relative w-full min-h-[100vh] flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-background via-white to-primary/3">
         {/* Background Gradients */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.div 
             style={{ y: yHero }}
-            className="absolute top-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-b from-primary/8 to-health-teal/5 blur-[120px]" 
+            className="absolute top-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-b from-primary/12 to-health-teal/8 blur-[120px]" 
           />
           <motion.div 
             style={{ y: useTransform(heroScroll, [0, 1], [0, -100]) }}
-            className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-t from-medical-blue/8 to-transparent blur-[100px]" 
+            className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-t from-medical-blue/12 to-transparent blur-[100px]" 
           />
         </div>
 
@@ -96,7 +96,7 @@ export default function HomePage() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="mb-8"
           >
-            <span className="inline-block py-2 px-4 rounded-lg border border-primary/30 bg-primary/8 backdrop-blur-sm text-xs font-paragraph tracking-widest uppercase text-primary font-semibold mb-8">
+            <span className="inline-block py-2 px-4 rounded-lg border border-primary/25 bg-primary/8 backdrop-blur-sm text-xs font-paragraph tracking-widest uppercase text-primary font-semibold mb-8">
               Clinical-Grade Voice Analysis
             </span>
             <h1 className="font-heading text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-foreground leading-[0.95] mb-8">
@@ -110,7 +110,7 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-            className="font-paragraph text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto mb-12 leading-relaxed"
           >
             Advanced AI analyzes just 30 seconds of daily speech to detect cognitive changes, stress patterns, and mental fatigue with clinical precision.
           </motion.p>
@@ -131,7 +131,7 @@ export default function HomePage() {
               <div className="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-300 group-hover:scale-100 group-hover:bg-white/15" />
             </Link>
             
-            <div className="flex items-center gap-4 text-sm font-paragraph text-slate-600">
+            <div className="flex items-center gap-4 text-sm font-paragraph text-foreground/70">
               <div className="flex -space-x-2">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/30 to-medical-blue/30 border-2 border-white flex items-center justify-center text-[10px] overflow-hidden">
@@ -146,9 +146,9 @@ export default function HomePage() {
       </section>
 
       {/* --- Marquee Section --- */}
-      <div className="w-full py-12 border-y border-slate-200 bg-gradient-to-r from-primary/4 via-health-teal/4 to-primary/4 backdrop-blur-sm overflow-hidden">
+      <div className="w-full py-12 border-y border-primary/10 bg-gradient-to-r from-primary/5 via-health-teal/5 to-primary/5 backdrop-blur-sm overflow-hidden">
         <div className="relative flex overflow-x-hidden group">
-          <div className="animate-marquee whitespace-nowrap flex items-center gap-16 text-3xl md:text-5xl font-heading text-primary/12 px-8">
+          <div className="animate-marquee whitespace-nowrap flex items-center gap-16 text-3xl md:text-5xl font-heading text-primary/15 px-8">
             <span>Cognitive Clarity</span>
             <span>•</span>
             <span>Mental Resilience</span>
@@ -165,7 +165,7 @@ export default function HomePage() {
             <span>•</span>
             <span>Voice Biomarkers</span>
           </div>
-          <div className="absolute top-0 animate-marquee2 whitespace-nowrap flex items-center gap-16 text-3xl md:text-5xl font-heading text-primary/12 px-8">
+          <div className="absolute top-0 animate-marquee2 whitespace-nowrap flex items-center gap-16 text-3xl md:text-5xl font-heading text-primary/15 px-8">
             <span>Cognitive Clarity</span>
             <span>•</span>
             <span>Mental Resilience</span>
@@ -194,10 +194,10 @@ export default function HomePage() {
               The Science of <br />
               <span className="bg-gradient-to-r from-primary to-medical-blue bg-clip-text text-transparent">Silent Signals</span>
             </h2>
-            <p className="font-paragraph text-xl text-slate-600 leading-relaxed mb-8">
+            <p className="font-paragraph text-xl text-foreground/70 leading-relaxed mb-8">
               Your voice is a window into your mind. Subtle changes in pitch, tone, rhythm, and pause patterns can reveal cognitive shifts long before they become apparent in daily life.
             </p>
-            <p className="font-paragraph text-lg text-slate-500 leading-relaxed">
+            <p className="font-paragraph text-lg text-foreground/60 leading-relaxed">
               NeuroSync utilizes clinical-grade audio processing to decode these biomarkers, providing you with a transparent, actionable view of your neurological health.
             </p>
             <div className="absolute -right-10 -bottom-10 w-32 h-32 border-b border-r border-primary/20 rounded-br-3xl" />
@@ -220,17 +220,17 @@ export default function HomePage() {
             >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-sm font-paragraph font-bold text-primary uppercase tracking-wider">Analysis Complete</span>
-                <span className="text-xs text-slate-500">Just now</span>
+                <span className="text-xs text-foreground/50">Just now</span>
               </div>
               <div className="h-2 w-full bg-primary/10 rounded-full overflow-hidden">
                 <motion.div 
                   initial={{ width: 0 }}
-                  whileInView={{ width: "94%"}}
+                  whileInView={{ width: "94%" }}
                   transition={{ duration: 1.5, ease: "easeOut" }}
                   className="h-full bg-gradient-to-r from-primary to-medical-blue" 
                 />
               </div>
-              <div className="mt-2 flex justify-between text-xs font-medium text-slate-600">
+              <div className="mt-2 flex justify-between text-xs font-medium text-foreground/70">
                 <span>Processing Audio</span>
                 <span>94% Accuracy</span>
               </div>
@@ -242,7 +242,7 @@ export default function HomePage() {
       <SectionDivider />
 
       {/* --- Metrics Section --- */}
-      <section className="w-full py-32 bg-gradient-to-b from-slate-50 to-background relative">
+      <section className="w-full py-32 bg-background relative">
         <div className="max-w-[120rem] mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row gap-16">
             
@@ -258,7 +258,7 @@ export default function HomePage() {
                   <h2 className="font-heading text-5xl md:text-6xl text-foreground mb-6">
                     What We Track
                   </h2>
-                  <p className="font-paragraph text-lg text-slate-600 mb-8 leading-relaxed">
+                  <p className="font-paragraph text-lg text-foreground/70 mb-8 leading-relaxed">
                     Our sophisticated AI analyzes multiple dimensions of your cognitive health through voice patterns, translating complex biomarkers into clear, understandable metrics.
                   </p>
                   <div className="hidden lg:block w-20 h-1 bg-gradient-to-r from-primary to-medical-blue mb-8 rounded-full" />
@@ -274,7 +274,7 @@ export default function HomePage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {isLoading ? (
                   Array.from({ length: 4 }).map((_, i) => (
-                    <div key={i} className="h-80 bg-gradient-to-br from-slate-200 to-slate-100 rounded-2xl animate-pulse" />
+                    <div key={i} className="h-80 bg-gradient-to-br from-light-grey to-light-grey/50 rounded-2xl animate-pulse" />
                   ))
                 ) : metrics.length > 0 ? (
                   metrics.map((metric, index) => {
@@ -287,7 +287,7 @@ export default function HomePage() {
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.6, delay: index * 0.1 }}
                         className={cn(
-                          "group relative p-8 rounded-2xl border border-slate-200 bg-white transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 hover:border-primary/30",
+                          "group relative p-8 rounded-2xl border border-primary/10 bg-white transition-all duration-500 hover:shadow-xl hover:shadow-primary/15 hover:-translate-y-2 hover:border-primary/20",
                           index % 2 === 1 ? "md:translate-y-8" : ""
                         )}
                       >
@@ -320,22 +320,22 @@ export default function HomePage() {
                           )}
                           
                           {metric.description && (
-                            <p className="font-paragraph text-sm text-slate-600 leading-relaxed mb-6">
+                            <p className="font-paragraph text-sm text-foreground/60 leading-relaxed mb-6">
                               {metric.description}
                             </p>
                           )}
 
-                          <div className="pt-6 border-t border-slate-200 flex items-center justify-between">
-                            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Status</span>
-                            <div className="w-2 h-2 rounded-full bg-health-teal shadow-[0_0_8px_rgba(0,163,224,0.6)]" />
+                          <div className="pt-6 border-t border-primary/10 flex items-center justify-between">
+                            <span className="text-xs font-bold text-foreground/40 uppercase tracking-wider">Status</span>
+                            <div className="w-2 h-2 rounded-full bg-health-teal shadow-[0_0_8px_rgba(20,184,166,0.6)]" />
                           </div>
                         </div>
                       </motion.div>
                     );
                   })
                 ) : (
-                  <div className="col-span-full py-20 text-center bg-slate-100/50 rounded-2xl border border-dashed border-slate-300">
-                    <p className="font-paragraph text-slate-500">Metrics data currently unavailable.</p>
+                  <div className="col-span-full py-20 text-center bg-light-grey/50 rounded-2xl border border-dashed border-primary/20">
+                    <p className="font-paragraph text-foreground/50">Metrics data currently unavailable.</p>
                   </div>
                 )}
               </div>
@@ -353,10 +353,10 @@ export default function HomePage() {
           <Image 
             src="https://static.wixstatic.com/media/61bde1_421e0e278c3241afb2f3406388bb3a2d~mv2.png?originWidth=1600&originHeight=960"
             alt="Calm water surface representing mental clarity"
-            className="w-full h-[120%] object-cover brightness-[0.7]"
+            className="w-full h-[120%] object-cover brightness-[0.8]"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent z-5" />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent z-5" />
         <div className="relative z-10 text-center px-6">
           <motion.h2 
             initial={{ opacity: 0, scale: 0.95 }}
@@ -366,7 +366,7 @@ export default function HomePage() {
           >
             "Clarity is the first step <br/> towards control."
           </motion.h2>
-          <div className="w-24 h-1 bg-white/70 mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-white/60 mx-auto rounded-full" />
         </div>
       </section>
 
@@ -374,7 +374,7 @@ export default function HomePage() {
       <section className="w-full py-32 px-6 md:px-12 max-w-[120rem] mx-auto">
         <div className="text-center mb-24">
           <h2 className="font-heading text-5xl md:text-6xl text-foreground mb-6">How It Works</h2>
-          <p className="font-paragraph text-lg text-slate-600">Three simple steps to cognitive empowerment.</p>
+          <p className="font-paragraph text-lg text-foreground/60">Three simple steps to cognitive empowerment.</p>
         </div>
 
         <div className="relative">
@@ -420,10 +420,10 @@ export default function HomePage() {
                   <div className="md:pr-16">
                     <span className="font-heading text-8xl text-primary/8 absolute -top-10 -left-10 md:left-auto md:right-10 -z-10">{item.step}</span>
                     <h3 className="font-heading text-3xl md:text-4xl text-foreground mb-4">{item.title}</h3>
-                    <p className="font-paragraph text-slate-600 leading-relaxed">{item.desc}</p>
+                    <p className="font-paragraph text-foreground/60 leading-relaxed">{item.desc}</p>
                   </div>
                 ) : (
-                  <div className="w-full h-64 md:h-80 bg-gradient-to-br from-primary/5 to-medical-blue/5 rounded-2xl overflow-hidden relative group border border-slate-200">
+                  <div className="w-full h-64 md:h-80 bg-gradient-to-br from-primary/5 to-medical-blue/5 rounded-2xl overflow-hidden relative group border border-primary/10">
                     <div className="absolute inset-0 group-hover:bg-primary/8 transition-colors duration-500" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <item.icon className="w-16 h-16 text-primary/30 group-hover:scale-110 transition-transform duration-500" />
@@ -437,10 +437,10 @@ export default function HomePage() {
                   <div className="md:pl-16 relative">
                     <span className="font-heading text-8xl text-primary/8 absolute -top-10 -left-4 -z-10">{item.step}</span>
                     <h3 className="font-heading text-3xl md:text-4xl text-foreground mb-4">{item.title}</h3>
-                    <p className="font-paragraph text-slate-600 leading-relaxed">{item.desc}</p>
+                    <p className="font-paragraph text-foreground/60 leading-relaxed">{item.desc}</p>
                   </div>
                 ) : (
-                  <div className="w-full h-64 md:h-80 bg-gradient-to-br from-primary/5 to-medical-blue/5 rounded-2xl overflow-hidden relative group border border-slate-200">
+                  <div className="w-full h-64 md:h-80 bg-gradient-to-br from-primary/5 to-medical-blue/5 rounded-2xl overflow-hidden relative group border border-primary/10">
                     <div className="absolute inset-0 group-hover:bg-primary/8 transition-colors duration-500" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <item.icon className="w-16 h-16 text-primary/30 group-hover:scale-110 transition-transform duration-500" />
