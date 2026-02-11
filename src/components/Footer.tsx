@@ -3,7 +3,7 @@ import { Brain } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-b from-foreground to-foreground/95 text-white">
+    <footer className="w-full bg-gradient-to-b from-slate-900 to-slate-950 text-white">
       <div className="max-w-[120rem] mx-auto px-6 md:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
@@ -16,7 +16,7 @@ export default function Footer() {
                 NeuroSync
               </h3>
             </div>
-            <p className="font-paragraph text-base text-white/70 max-w-md leading-relaxed">
+            <p className="font-paragraph text-base text-slate-300 max-w-md leading-relaxed">
               Advanced voice-based cognitive health tracking. Monitor your brain health with clinical precision and actionable insights.
             </p>
           </div>
@@ -30,7 +30,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/"
-                  className="font-paragraph text-base text-white/70 hover:text-primary transition-colors duration-300"
+                  className="font-paragraph text-base text-slate-300 hover:text-primary transition-colors duration-300"
                 >
                   Home
                 </Link>
@@ -38,7 +38,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/record"
-                  className="font-paragraph text-base text-white/70 hover:text-primary transition-colors duration-300"
+                  className="font-paragraph text-base text-slate-300 hover:text-primary transition-colors duration-300"
                 >
                   Record
                 </Link>
@@ -46,7 +46,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/dashboard"
-                  className="font-paragraph text-base text-white/70 hover:text-primary transition-colors duration-300"
+                  className="font-paragraph text-base text-slate-300 hover:text-primary transition-colors duration-300"
                 >
                   Dashboard
                 </Link>
@@ -54,7 +54,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/comparison"
-                  className="font-paragraph text-base text-white/70 hover:text-primary transition-colors duration-300"
+                  className="font-paragraph text-base text-slate-300 hover:text-primary transition-colors duration-300"
                 >
                   Compare
                 </Link>
@@ -68,16 +68,16 @@ export default function Footer() {
               Features
             </h4>
             <ul className="space-y-3">
-              <li className="font-paragraph text-base text-white/70">
+              <li className="font-paragraph text-base text-slate-300">
                 Voice Analysis
               </li>
-              <li className="font-paragraph text-base text-white/70">
+              <li className="font-paragraph text-base text-slate-300">
                 Cognitive Tracking
               </li>
-              <li className="font-paragraph text-base text-white/70">
+              <li className="font-paragraph text-base text-slate-300">
                 Health Insights
               </li>
-              <li className="font-paragraph text-base text-white/70">
+              <li className="font-paragraph text-base text-slate-300">
                 Secure & Private
               </li>
             </ul>
@@ -85,8 +85,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10">
-          <p className="font-paragraph text-sm text-white/60 text-center">
+        <div className="pt-8 border-t border-slate-700">
+          <p className="font-paragraph text-sm text-slate-400 text-center">
             © {new Date().getFullYear()} NeuroSync. Advanced cognitive health monitoring through voice analysis.
           </p>
         </div>

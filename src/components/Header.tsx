@@ -14,7 +14,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full bg-white border-b border-light-grey sticky top-0 z-50">
+    <header className="w-full bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-[120rem] mx-auto px-6 md:px-12 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -36,7 +36,7 @@ export default function Header() {
                 className={`font-paragraph text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300 ${
                   location.pathname === link.path
                     ? 'text-primary bg-primary/10'
-                    : 'text-foreground/70 hover:text-primary hover:bg-primary/5'
+                    : 'text-slate-600 hover:text-primary hover:bg-primary/5'
                 }`}
               >
                 {link.label}
@@ -47,7 +47,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-foreground p-2 hover:bg-light-grey rounded-lg transition-colors"
+            className="md:hidden text-foreground p-2 hover:bg-slate-100 rounded-lg transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -56,7 +56,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 flex flex-col gap-2 border-t border-light-grey pt-4">
+          <nav className="md:hidden mt-4 pb-4 flex flex-col gap-2 border-t border-slate-200 pt-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -65,7 +65,7 @@ export default function Header() {
                 className={`font-paragraph text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300 ${
                   location.pathname === link.path
                     ? 'text-primary bg-primary/10'
-                    : 'text-foreground/70 hover:text-primary hover:bg-primary/5'
+                    : 'text-slate-600 hover:text-primary hover:bg-primary/5'
                 }`}
               >
                 {link.label}
