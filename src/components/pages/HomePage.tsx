@@ -9,6 +9,22 @@ import { Activity, ArrowRight, BarChart3, Brain, Heart, Mic, Zap } from 'lucide-
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { callFastAPI } from 'backend/backendAPI';
+
+$w.onReady(async function () {
+    // Test the connection
+    try {
+        const result = await callFastAPI('/api/test');
+        console.log('Backend response:', result);
+
+        // Display result on page (if you have a text element with ID 'resultText')
+        $w('#resultText').text = JSON.stringify(result);
+    } catch (error) {
+        console.error('Connection failed:', error);
+        $w('#resultText').text = 'Error: ' + error.message;
+    }
+});
+
 // --- Utility Components ---
 
 const SectionDivider = () => (
