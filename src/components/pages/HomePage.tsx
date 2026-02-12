@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Brain, Activity, Heart, Zap, ArrowRight, Mic, BarChart3 } from 'lucide-react';
-import { BaseCrudService } from '@/integrations';
-import { HealthMetrics } from '@/entities';
-import { Image } from '@/components/ui/image';
+ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import { Image } from '@/components/ui/image';
+import { HealthMetrics } from '@/entities';
+import { BaseCrudService } from '@/integrations';
 import { cn } from '@/lib/utils';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Activity, ArrowRight, BarChart3, Brain, Heart, Mic, Zap } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // --- Utility Components ---
 
@@ -79,13 +79,13 @@ export default function HomePage() {
       <section ref={heroRef} className="relative w-full min-h-[100vh] flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-br from-background via-white to-primary/3">
         {/* Background Gradients */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <motion.div 
+          <motion.div
             style={{ y: yHero }}
-            className="absolute top-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-b from-primary/12 to-health-teal/8 blur-[120px]" 
+            className="absolute top-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-b from-primary/12 to-health-teal/8 blur-[120px]"
           />
-          <motion.div 
+          <motion.div
             style={{ y: useTransform(heroScroll, [0, 1], [0, -100]) }}
-            className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-t from-medical-blue/12 to-transparent blur-[100px]" 
+            className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-t from-medical-blue/12 to-transparent blur-[100px]"
           />
         </div>
 
@@ -130,7 +130,7 @@ export default function HomePage() {
               </span>
               <div className="absolute inset-0 h-full w-full scale-0 rounded-lg transition-all duration-300 group-hover:scale-100 group-hover:bg-white/15" />
             </Link>
-            
+
             <div className="flex items-center gap-4 text-sm font-paragraph text-foreground/70">
               <div className="flex -space-x-2">
                 {[1, 2, 3].map((i) => (
@@ -202,17 +202,17 @@ export default function HomePage() {
             </p>
             <div className="absolute -right-10 -bottom-10 w-32 h-32 border-b border-r border-primary/20 rounded-br-3xl" />
           </div>
-          
+
           <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-lg">
-            <Image 
+            <Image
               src="https://static.wixstatic.com/media/61bde1_6036eda423914c18a7f580a47e9d2c62~mv2.png?originWidth=896&originHeight=576"
               alt="Abstract visualization of sound waves and neural networks"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/15 to-transparent mix-blend-multiply" />
-            
+
             {/* Floating Data Card */}
-            <motion.div 
+            <motion.div
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
@@ -223,11 +223,11 @@ export default function HomePage() {
                 <span className="text-xs text-foreground/50">Just now</span>
               </div>
               <div className="h-2 w-full bg-primary/10 rounded-full overflow-hidden">
-                <motion.div 
+                <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: "94%" }}
                   transition={{ duration: 1.5, ease: "easeOut" }}
-                  className="h-full bg-gradient-to-r from-primary to-medical-blue" 
+                  className="h-full bg-gradient-to-r from-primary to-medical-blue"
                 />
               </div>
               <div className="mt-2 flex justify-between text-xs font-medium text-foreground/70">
@@ -245,7 +245,7 @@ export default function HomePage() {
       <section className="w-full py-32 bg-background relative">
         <div className="max-w-[120rem] mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row gap-16">
-            
+
             {/* Sticky Header */}
             <div className="lg:w-1/3">
               <div className="sticky top-32">
@@ -308,17 +308,17 @@ export default function HomePage() {
                               <IconComponent className="w-7 h-7" />
                             )}
                           </div>
-                          
+
                           <h3 className="font-heading text-2xl text-foreground mb-3 group-hover:text-primary transition-colors">
                             {metric.metricName}
                           </h3>
-                          
+
                           {metric.tagline && (
                             <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wide text-medical-blue bg-medical-blue/8 rounded-lg">
                               {metric.tagline}
                             </div>
                           )}
-                          
+
                           {metric.description && (
                             <p className="font-paragraph text-sm text-foreground/60 leading-relaxed mb-6">
                               {metric.description}
@@ -346,11 +346,11 @@ export default function HomePage() {
 
       {/* --- Parallax Section --- */}
       <section className="w-full h-[80vh] relative overflow-hidden flex items-center justify-center my-24">
-        <motion.div 
+        <motion.div
           style={{ y: useTransform(scrollYProgress, [0.4, 0.8], [-100, 100]) }}
           className="absolute inset-0 z-0"
         >
-          <Image 
+          <Image
             src="https://static.wixstatic.com/media/61bde1_421e0e278c3241afb2f3406388bb3a2d~mv2.png?originWidth=1600&originHeight=960"
             alt="Calm water surface representing mental clarity"
             className="w-full h-[120%] object-cover brightness-[0.8]"
@@ -358,7 +358,7 @@ export default function HomePage() {
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent z-5" />
         <div className="relative z-10 text-center px-6">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
@@ -458,7 +458,7 @@ export default function HomePage() {
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
         </div>
-        
+
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -483,7 +483,7 @@ export default function HomePage() {
       </section>
 
       <Footer />
-      
+
       <style>{`
         .animate-marquee {
           animation: marquee 25s linear infinite;
