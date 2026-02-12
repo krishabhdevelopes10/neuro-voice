@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mic, Square, Trash2, Check } from 'lucide-react';
-import { BaseCrudService } from '@/integrations';
+import { BaseCrudService, BackendService } from '@/integrations';
 import { VoiceRecordings } from '@/entities';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -113,28 +113,26 @@ export default function RecordPage() {
     setIsAnalyzing(true);
 
     try {
+      const userId = "user_" + Date.now();
+      
       for (const recording of completedRecordings) {
-        const cognitiveScore = Math.floor(Math.random() * 30) + 70;
-        const stressLevel = Math.floor(Math.random() * 40) + 20;
-        const fatigueIndex = Math.floor(Math.random() * 35) + 15;
+        const result = await BackendService.analyzeSpeech(recording.blob!, userId);
 
         await BaseCrudService.create<VoiceRecordings>('voicerecordings', {
           _id: crypto.randomUUID(),
           recordingLabel: recording.label,
           audioFile: URL.createObjectURL(recording.blob!),
-          cognitiveScore,
-          stressLevel,
-          fatigueIndex,
+          cognitiveScore: Math.round(result.analysis.stress_score),
+          stressLevel: Math.round(result.analysis.stress_score),
+          fatigueIndex: 50,
           submissionDate: new Date().toISOString(),
         });
       }
 
-      setTimeout(() => {
-        navigate('/dashboard');
-      }, 1000);
+      setTimeout(() => navigate('/dashboard'), 1000);
     } catch (error) {
-      console.error('Error analyzing recordings:', error);
-      alert('An error occurred during analysis. Please try again.');
+      console.error('Error:', error);
+      alert('Error analyzing audio. Try again.');
       setIsAnalyzing(false);
     }
   };
