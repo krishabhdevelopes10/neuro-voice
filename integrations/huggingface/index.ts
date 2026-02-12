@@ -1,0 +1,1 @@
+export { HuggingFaceService } from './service';

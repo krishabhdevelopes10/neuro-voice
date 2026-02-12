@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mic, Square, Trash2, Check } from 'lucide-react';
-import { BaseCrudService, BackendService } from '@/integrations';
+import { BaseCrudService, HuggingFaceService } from '@/integrations';
 import { VoiceRecordings } from '@/entities';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -113,10 +113,9 @@ export default function RecordPage() {
     setIsAnalyzing(true);
 
     try {
-      const userId = "user_" + Date.now();
-      
       for (const recording of completedRecordings) {
-        const result = await BackendService.analyzeSpeech(recording.blob!, userId);
+        console.log('Analyzing recording:', recording.label);
+        const result = await HuggingFaceService.analyzeSpeech(recording.blob!);
 
         await BaseCrudService.create<VoiceRecordings>('voicerecordings', {
           _id: crypto.randomUUID(),
